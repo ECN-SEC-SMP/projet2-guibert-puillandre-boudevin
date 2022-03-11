@@ -1,9 +1,5 @@
-//!@file Partie.h
-//!@brief Classe Partie, permet de contrôler le déroulement de la partie de monopoly
-//!@author Valentin / Théo
-
-#ifndef Partie_h
-#define Partie_h
+#ifndef Partie_hpp
+#define Partie_hpp
 
 #include <iostream>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
@@ -12,8 +8,8 @@
 
 using namespace std;
 
-#include "Joueur.h"
-#include "Plateau.h"
+#include "Joueur.hpp"
+#include "Plateau.hpp"
 
 static int nb_tours = 0;
 
@@ -66,6 +62,11 @@ class Partie{
         //!@return retourne vrai s'il ne reste plus qu'un joueur dans la liste, sinon faux
         bool finDePartie() const;
 
+    friend ostream& operator<<(ostream& s,Partie const& v);
+
 };
+
+ostream& operator<<(ostream& s,Partie const& v);
+
 
 #endif /* Partie_h */

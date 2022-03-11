@@ -2,8 +2,8 @@
 //!@brief Classe Plateau, permet de décrire le plateau de jeu
 //!@author Valentin 
 
-#ifndef Plateau_h 
-#define Plateau_h 
+#ifndef Plateau_hpp
+#define Plateau_hpp
 
 #include <iostream>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
@@ -37,9 +37,15 @@ public:
 
     //!@brief Supprime l'ensemble des propriétés associées à un joueur et enlève les maisons et immeubles qui pouvaient être présents
     //!@param j cible est un pointeur vers un objet de type joueur
-    void deplacer_joueurs(vector<Joueur* j>,int nb_cases);
+    void deplacer_joueurs(vector<Joueur*> j,int nb_cases);
 
-    Case* get_case_joueurs(Joueu);
+    Case* get_case_joueurs(Joueur* j);
+    int get_index_case_joueur(Joueur* j);
+
+    friend ostream& operator<<(ostream& s,Plateau const& v);
+
 };
+
+ostream& operator<<(ostream& s,Plateau const& v);
 
 #endif

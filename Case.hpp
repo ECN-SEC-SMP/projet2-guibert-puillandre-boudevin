@@ -1,9 +1,5 @@
-//!@file Case.h
-//!@brief classe mère de chance, Prison, Depart et achetable
-//!@author Valentin
-
-#ifndef Case_h 
-#define Case_h 
+#ifndef Case_hpp
+#define Case_hpp
 
 #include <iostream>
 #include <stdio.h>
@@ -23,12 +19,12 @@ class Case{
         vector<Joueur*> get_joueurs() const;
 
         //virtual ~Vehicule();
-        friend ostream& operator<<(ostream& s,Vehicule const& v);
+        friend ostream& operator<<(ostream& s,Case const& v);
 
 };
 
 
 // opérateur d'affichage
-ostream& operator<<(ostream& s,Vehicule const& v);
+ostream& operator<<(ostream& s,Case const& v);
 
 #endif
