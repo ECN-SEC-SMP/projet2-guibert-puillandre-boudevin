@@ -10,7 +10,7 @@
 
 using namespace std;
 
-#include "Joueur.h"
+#include "Joueur.hpp"
 
 class Case{ 
 
