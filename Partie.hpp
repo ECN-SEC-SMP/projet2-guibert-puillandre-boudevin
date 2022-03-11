@@ -2,8 +2,8 @@
 //!@brief Classe Partie, permet de contrôler le déroulement de la partie de monopoly
 //!@author Valentin / Théo
 
-#ifndef Partie_h
-#define Partie_h
+#ifndef Partie_hpp
+#define Partie_hpp
 
 #include <iostream>
 #include <stdio.h>      /* printf, scanf, puts, NULL */

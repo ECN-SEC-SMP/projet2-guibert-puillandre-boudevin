@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CarteL_hpp
-#define CarteL_hpp
+#ifndef CarteM_hpp
+#define CarteM_hpp
 
 #include <iostream>
 #include <list>
@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class CarteL {
+class CarteM {
 
 protected:
     
@@ -18,8 +18,8 @@ protected:
 
     
     virtual void effet();
-    //la dernière tortue du plateau avance d'une case (si plusieurs tortue choisir une turtue)
-  
+    //recule d'une  case la couleur concernée
+
 
     private : 
 

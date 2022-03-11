@@ -2,8 +2,8 @@
 //!@brief Classe Plateau, permet de décrire le plateau de jeu
 //!@author Valentin 
 
-#ifndef Plateau_h 
-#define Plateau_h 
+#ifndef Plateau_hpp
+#define Plateau_hpp 
 
 #include <iostream>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
