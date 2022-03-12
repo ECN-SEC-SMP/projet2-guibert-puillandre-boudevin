@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "Joueur.hpp"
+#include "Deck.hpp"
 
 
 
@@ -16,7 +17,6 @@ Joueur::Joueur(string name) //constructeur
 
   // clear la main 
   this->main.clear();
-  
 }
 
 void Joueur::afficher_joueur() const{
@@ -38,3 +38,20 @@ int Joueur::get_tuile() const//renvoi la tuile du joueur
 {
   return this->id_tuile;
 }
+
+//retourne le contenu de la main
+vector<Case *> Joueur::get_main() const {
+  
+}
+/*
+        void afficher_main() const;
+
+        void ajouter_carte ()const;
+
+        void supprimer_carte ()const;
+
+        virtuel void choisir_carte() = 0;
+
+        void init_main () const;
+
+*/
