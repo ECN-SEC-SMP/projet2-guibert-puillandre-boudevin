@@ -36,22 +36,36 @@ int Joueur::get_id() const//renvoi l'id du joueur / tortue
 
 int Joueur::get_tuile() const//renvoi la tuile du joueur
 {
-  return this->id_tuile;
-}
-
-//retourne le contenu de la main
-vector<Case *> Joueur::get_main() const {
-  
+  return this->tuile;
 }
 /*
-        void afficher_main() const;
+//retourne le contenu de la main
+vector<Carte *> Joueur::get_main() const {
+  
+}
 
-        void ajouter_carte ()const;
+void Joueur::afficher_main() const{
 
-        void supprimer_carte ()const;
 
-        virtuel void choisir_carte() = 0;
+}
 
-        void init_main () const;
+
+void Joueur::ajouter_carte (Deck &deck)const{
+
+  this->main.push_back(deck.piocher);
+
+}
+void Joueur::supprimer_carte (int num_carte)const{
+
+
+  this->main.erase(this->main.begin() + num_carte-1);
+
+}
+void init_main (Deck &deck) const{
+
+  for (i=0; i>=4; i++){
+  this->ajouter_carte (deck);
+  }
+}
 
 */

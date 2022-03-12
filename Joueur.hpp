@@ -23,7 +23,7 @@ class Joueur{
         enum couleur { rouge, jaune, bleu, vert, violet };
 
         //constructeur
-        Joueur(string name,int id_tortue);
+        Joueur(string name);
 
         //!@brief Récupère le nom du joueur
         //!@return Retourne le nom du joueur
@@ -38,17 +38,17 @@ class Joueur{
         int get_tuile() const;
 
         //retourne le contenu de la main
-        vector<Case *> get_main() const;
+        vector<Carte *> get_main() const;
 
         void afficher_main() const;
 
-        void ajouter_carte ()const;
+        void ajouter_carte (Deck &deck)const;
 
-        void supprimer_carte ()const;
+        void supprimer_carte (int num_carte)const;
 
         virtuel void choisir_carte() = 0;
 
-        void init_main () const;
+        void init_main (Deck &deck) const;
 };
 
 #endif /* Joueur_h */
