@@ -6,29 +6,24 @@ using namespace std;
 #include "Joueur.hpp"
 #include "Deck.hpp"
 
-
-
-Joueur::Joueur(string name) //constructeur
+Joueur::Joueur(string name)//constructeur
 {
   this->id_tortue = current_id_to_give;
   this->tuile = current_id_to_give;
   current_id_to_give++;
   this->nom = name;
-
   // clear la main 
   this->main.clear();
+  // init main
+  this->init_main();
 }
 
 void Joueur::afficher_joueur() const{
   cout << "Nom : " << this->get_nom() << endl;
 }
-
-
 string Joueur::get_nom() const{
   return this->nom;
 }
-
-
 int Joueur::get_id() const//renvoi l'id du joueur / tortue
 {
   return this->id_tortue;
@@ -41,14 +36,8 @@ int Joueur::get_tuile() const//renvoi la tuile du joueur
 /*
 //retourne le contenu de la main
 vector<Carte *> Joueur::get_main() const {
-  
+  return this->main;
 }
-
-void Joueur::afficher_main() const{
-
-
-}
-
 
 void Joueur::ajouter_carte (Deck &deck)const{
 
@@ -63,7 +52,7 @@ void Joueur::supprimer_carte (int num_carte)const{
 }
 void init_main (Deck &deck) const{
 
-  for (i=0; i>=4; i++){
+  for (i=0; i<this->main.size(); i++){
   this->ajouter_carte (deck);
   }
 }
