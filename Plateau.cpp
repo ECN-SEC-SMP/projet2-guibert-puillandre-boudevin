@@ -15,6 +15,8 @@ Plateau::Plateau(){
 };
 
 void Plateau::initPlateau(){
+  //1---CREATION DU PLATEAU DE JEU
+
   //Initialisation du plateau de jeu
   vector<Case *> vec_cases;
   //On créé dix cases au sein du plateau
@@ -26,6 +28,19 @@ void Plateau::initPlateau(){
   this->plateau_de_jeu.resize(vec_cases.size());
   copy(vec_cases.begin(),vec_cases.end(),this->plateau_de_jeu.begin());
 
+  //2---ON REMPLIT LE DECK POUR LA PARTIE
+  this->deck_de_la_partie = new Deck();
+
+  //4---POSITIONNEMENT DES JOUEURS SUR LE PLATEAU
+  for(Joueur* j : this->liste_de_joueurs)
+  {
+    this->plateau_de_jeu.front()->ajouter_joueur(j);
+    //5--ON DISTRIBUE UNE MAIN POUR CHAQUE JOUEUR
+    for(int i = 0; i < 5; i++){
+      j->ajouter_carte(this->deck_de_la_partie);
+    }
+  }
+
 };
 
 void Plateau::affichage_plateau() const{
@@ -36,13 +51,88 @@ void Plateau::affichage_plateau() const{
   }
 };
 
+void Plateau::deplacer_joueurs(Joueur* j,int nb_cases){
+  int numero_case = 0;
+  for(Case* c : this->plateau_de_jeu){
+    //On cherche la case actuelle du joueur
+    if (std::find(c->get_joueurs().begin(), c->get_joueurs().end(), j) != c->get_joueurs().end()) {
+      //On détermine la case sur laquelle le nouveau joueur doit se situer
+      int index_nouvelle_case;
+      if(numero_case+nb_cases >= 10){
+        index_nouvelle_case = 10;
+      }
+      else{
+        index_nouvelle_case = numero_case+nb_cases;
+      }
+      Case* nouvelle_case = this->plateau_de_jeu[index_nouvelle_case];
+      //On déplace tous les joueurs au dessus du joueur, avec celui-ci
+      for(Joueur* j : c->get_joueurs()){
+        //On le place sur la nouvelle carte
+        nouvelle_case->ajouter_joueur(j);
+        //On le retire de la case actuelle
+        c->retirer_joueur(j);
+      }
+    }
+    numero_case++;
+  }
+}
+
+void Plateau::ajouter_joueur(Joueur* j){
+  try
+  {
+    if(this->liste_de_joueurs.size() > 5){
+      throw string("Nombre de joueurs trop élevé");
+    }
+  this->liste_de_joueurs.push_back(j);
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+}
+
+int Plateau::get_index_case_joueur(Joueur* j){
+  try
+  {
+    int numero_case = 0;
+    for(Case* c : this->plateau_de_jeu){
+      //On cherche la case actuelle du joueur
+      if (std::find(c->get_joueurs().begin(), c->get_joueurs().end(), j) != c->get_joueurs().end()) {
+        return numero_case;
+      }
+      numero_case++;
+    }
+    throw string("Exception : Player not found on a Case");
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  
+
+}
+
+Case* Plateau::get_case_joueurs(Joueur* j){
+  try
+  {
+    for(Case* c : this->plateau_de_jeu){
+      //On cherche la case actuelle du joueur
+      if (std::find(c->get_joueurs().begin(), c->get_joueurs().end(), j) != c->get_joueurs().end()) {
+        return c;
+      }
+    }
+    throw string("Exception : Player not found on a Case");
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+}
+
+vector<Joueur*> Plateau::get_liste_joueurs(){
+  return this->liste_de_joueurs;
+}
 
 vector<Case *> Plateau::get_plateau_de_jeu() const{
   return this->plateau_de_jeu;
 };
-
-Case* 
-
-void Plateau::deplacer_joueurs(vector<Joueur* j>,int nb_cases){
-    
-}

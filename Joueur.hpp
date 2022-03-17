@@ -5,6 +5,7 @@
 using namespace std;
 #include <vector> 
 
+#include "Cartes.hpp"
 #include "Deck.hpp"
 
 static int current_id_to_give = 0;
@@ -16,7 +17,7 @@ class Joueur{
         int id_tortue; 
         string nom;
         int tuile;
-        vector<Carte *> main;
+        vector<Cartes *> main;
         
         
     public:
@@ -38,15 +39,15 @@ class Joueur{
         int get_tuile() const;
 
         //retourne le contenu de la main
-        vector<Carte *> get_main() const;
+        vector<Cartes *> get_main() const;
 
         void afficher_main() const;
 
-        void ajouter_carte (Deck &deck)const;
+        void ajouter_carte (Deck* deck);
 
         void supprimer_carte (int num_carte)const;
 
-        virtuel void choisir_carte() = 0;
+        virtual Cartes* choisir_carte() = 0;
 
         void init_main (Deck &deck) const;
 };

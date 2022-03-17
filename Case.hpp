@@ -17,8 +17,8 @@ class Case{
     public:
 
         vector<Joueur*> get_joueurs() const;
-
-        //virtual ~Vehicule();
+        void ajouter_joueur(Joueur* j);
+        void retirer_joueur(Joueur* j);
         friend ostream& operator<<(ostream& s,Case const& v);
 
 };

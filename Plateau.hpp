@@ -13,12 +13,16 @@
 using namespace std;
 
 #include "Case.hpp"
+#include "Joueur.hpp"
+#include "Deck.hpp"
 
 class Plateau{ 
 
 protected:
 
     vector<Case *> plateau_de_jeu; /*!< plateau_de_jeu contient les différentes cases du plateau (peuvent être soit Constructible, Achetable, Depart, Prison, Chance, Gares)*/
+    vector<Joueur *> liste_de_joueurs;
+    Deck* deck_de_la_partie;
 
 public:
 
@@ -39,8 +43,13 @@ public:
     //!@param j cible est un pointeur vers un objet de type joueur
     void deplacer_joueurs(Joueur* j,int nb_cases);
 
+    void ajouter_joueur(Joueur* j);
+    
     Case* get_case_joueurs(Joueur* j);
+    
     int get_index_case_joueur(Joueur* j);
+
+    vector<Joueur*> get_liste_joueurs();
 
     friend ostream& operator<<(ostream& s,Plateau const& v);
 

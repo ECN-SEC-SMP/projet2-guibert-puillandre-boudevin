@@ -18,7 +18,6 @@ class Partie{
     protected:
 
         Joueur *joueur_actuel;
-        list<Joueur *> list_joueurs;
         Plateau *Plat ;
 
     public:
@@ -26,11 +25,6 @@ class Partie{
         //!@brief Fonction permettant de récupérer le joueur qui doit actuellement jouer son tour au monopoly
         //!@return Joueur* le joueur qui est le joueur actuel de la partie
         Joueur* get_joueur_actuel() const; //renvoie le joueur actuel
-
-        //!@brief Fonction permettant d'ajouter un joueur à la partie de monopoly
-        //!@param j cible est un pointeur vers un objet de type joueur
-        //!@return vrai si l'ajout s'est correctement déroulé
-        bool ajouter_joueurs(Joueur *j); 
 
         //!@brief Fonction permettant de démarrer et de jouer la partie de monopoly en mode automatique
         void demarrer_partie(); 
@@ -42,14 +36,6 @@ class Partie{
         void affiche() const;
 
     private:
-
-        //!@brief Fonction permettant de déclencher la méthode action/acheter (en fonction du score du dès et du type de case) de la case sur laquelle se trouve le joueur courant
-        //!@param score_des représente le score du dès en entrée (compris entre 1 et 6)
-        void jouer_carte();
-
-        //!@brief Fonction permettant de lancer un dès aléatoire à six faces
-        //!@return retourne un entier aléatoire de 1 à 6;
-        int piocher_carte();
 
         //!@brief Fonction permettant de passer au tour de jeu du joueur suivant
         void joueur_suivant();
