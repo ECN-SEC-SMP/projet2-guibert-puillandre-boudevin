@@ -14,14 +14,13 @@ class Joueur{
 
     protected:
 
-        int id_tortue; 
+        int id_tortue;
         string nom;
         int tuile;
         vector<Cartes *> main;
-        
-        
+
     public:
-        enum couleur { rouge, jaune, bleu, vert, violet };
+        enum Couleur_joueur{ rouge, jaune, bleu, vert, violet };
 
         //constructeur
         Joueur(string name);
@@ -32,9 +31,7 @@ class Joueur{
 
         //!@brief Récupère l'id du joueur / tortue
         //!@return Retourne l'id du joueur / tortue
-        int get_id() const;
-
-        int get_id() const;
+        Couleur_joueur get_id() const;
 
         int get_tuile() const;
 
@@ -50,6 +47,24 @@ class Joueur{
         virtual Cartes* choisir_carte() = 0;
 
         void init_main (Deck &deck) const;
+
+       // affiche du joueur et de sa main
+       std::ostream & do_print(std::ostream & c) const {
+            // création du vecteur
+            string vs;
+            
+            // on ajoute le nom
+            vs += "Le joueur :"+ this->get_nom();
+            vs += " qui a la tortue de couleur :" + this->get_id();
+            vs += "\n et la main suivante :";
+            for (i=0; i<this->main.size(); i++){
+              vs += "\ncarte n°" + to_string(i) +" :\n";
+              vs += this->main[i].afficher();
+            }
+          }
+            c <<  vs;
+            return c;
+        }; 
 };
 
 #endif /* Joueur_h */
