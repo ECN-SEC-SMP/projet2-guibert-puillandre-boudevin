@@ -15,60 +15,56 @@ static int couleur [4];
 class Joueur{
 
     public:
-        enum Couleur_joueur{ rouge, jaune, bleu, vert, violet };
 
-        //constructeur
-        Joueur(string name, Deck* deck);
+      enum Couleur_joueur{ rouge, jaune, bleu, vert, violet };
 
-        //!@brief Récupère le nom du joueur
-        //!@return Retourne le nom du joueur
-        string get_nom() const;
+      //constructeur
+      Joueur(string name, Deck* deck);
 
-        //!@brief Récupère l'id du joueur / tortue
-        //!@return Retourne l'id du joueur / tortue
-        int get_id() const;
+      //!@brief Récupère le nom du joueur
+      //!@return Retourne le nom du joueur
+      string get_nom() const;
 
-        Couleur_joueur get_tuile() const;
+      //!@brief Récupère l'id du joueur / tortue
+      //!@return Retourne l'id du joueur / tortue
+      int get_id() const;
 
-        //retourne le contenu de la main
-        vector<Cartes *> get_main() const;
+      Couleur_joueur get_tuile() const;
 
-        void afficher_main() const;
+      //retourne le contenu de la main
+      vector<Cartes *> get_main() const;
 
-        void ajouter_carte (Deck *deck) ;
+      void afficher_main() const;
 
-        void supprimer_carte (int num_carte, Deck *deck);
+      void ajouter_carte (Deck *deck) ;
 
-        virtual Cartes* choisir_carte() = 0;
+      void supprimer_carte (int num_carte, Deck *deck);
 
-        void init_main (Deck *deck);
+      virtual Cartes* choisir_carte() = 0;
 
-        protected:
+      void init_main (Deck *deck);
 
-        int id_tortue;
-        string nom;
-        Couleur_joueur tuile;
-        vector<Cartes *> main_joueur;
-        Couleur_joueur choix_carte;
+      protected:
 
+      int id_tortue;
+      string nom;
+      Couleur_joueur tuile;
+      vector<Cartes *> main_joueur;
+      Couleur_joueur choix_carte;
 
-ostream& operator<<(ostream& os,Joueur const& j);
+      friend ostream& operator<<(ostream& os,Joueur* const& v);
+
 };
 
 
-ostream& operator<<(ostream& os,Joueur const& j){
-    // création du vecteur
-            string vs;
-            
-            // on ajoute le nom
-            vs += "Le joueur :"+ this->get_nom();
-            vs += " qui a la tortue de couleur :" + this->get_tuile();
-            vs += "\n et la main suivante :";
-            for (int i=0; i<this->main.size(); i++){
-              vs += "\ncarte n°" + to_string(i) +" :\n";
-              vs += this->main[i].afficher();
-            }
-    os <<  vs;
+ostream& operator<<(ostream& os,Joueur* const& j){
+    os << "Le joueur :" <<  j->get_nom();
+    os <<  " qui a la tortue de couleur :" +  j->get_tuile();
+    os << "\n et la main suivante :";
+    for (int i=0; i< j->main_joueur.size(); i++){
+      os << "\ncarte n°" + to_string(i) +" :\n";
+      os <<  j->main_joueur[i];
+    }
     return os;
 }
 
