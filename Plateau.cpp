@@ -77,6 +77,22 @@ void Plateau::deplacer_joueurs(Joueur* j,int nb_cases){
   }
 }
 
+void Plateau::deplacer_joueurs_couleur(Joueur::Couleur_joueur couleur,int nb_cases){
+  try
+  {
+    for(Joueur* j : this->liste_de_joueurs){
+      if(j->get_tuile() == couleur){
+        deplacer_joueurs(j,nb_cases);
+      }
+    }
+    throw string("Un joueur associé avec cette couleur n'a pas été trouvé");
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+}
+
 void Plateau::ajouter_joueur(Joueur* j){
   try
   {

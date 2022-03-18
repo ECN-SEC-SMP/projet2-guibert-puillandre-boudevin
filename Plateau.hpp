@@ -43,6 +43,8 @@ public:
     //!@param j cible est un pointeur vers un objet de type joueur
     void deplacer_joueurs(Joueur* j,int nb_cases);
 
+    void deplacer_joueurs_couleur(Joueur::Couleur_joueur couleur,int nb_cases);
+
     void ajouter_joueur(Joueur* j);
     
     Case* get_case_joueurs(Joueur* j);
