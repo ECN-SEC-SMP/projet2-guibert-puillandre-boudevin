@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <algorithm>
 using namespace std;
 
 #include "Joueur.hpp"
@@ -75,10 +76,9 @@ void Joueur::ajouter_carte (Deck *deck){
   this->main_joueur.push_back(c);
 
 }
-void Joueur::supprimer_carte (int num_carte, Deck *deck){
-
-  deck->ajouter_cartes_defausse(this->main_joueur[num_carte]);
-  this->main_joueur.erase(this->main_joueur.begin() + num_carte-1);
+void Joueur::supprimer_carte (Cartes* c, Deck *deck){
+  deck->ajouter_cartes_defausse(c);
+  this->main_joueur.erase(std::remove(this->main_joueur.begin(), this->main_joueur.end(), c), this->main_joueur.end()); 
 
 }
 void Joueur::init_main (Deck *deck) {
