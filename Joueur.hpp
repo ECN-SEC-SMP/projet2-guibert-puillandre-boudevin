@@ -11,7 +11,7 @@ using namespace std;
 static int current_id_to_give = 0;
 static int couleur [4];
 // clean tab
-for (i = 0; i<=4; i++){couleur [i] = 0;
+// for (i = 0; i<=4; i++){couleur [i] = 0;
 
 
 class Joueur{
