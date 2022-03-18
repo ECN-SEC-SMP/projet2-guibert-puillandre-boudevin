@@ -28,7 +28,7 @@ cin >> carte_choisie ;
   // valentin except n° pas correct, numéro hors 1 à 5
 
 
-if (this->main_joueur[carte_choisie].get_couleur()){
+if (this->main_joueur[carte_choisie].get_couleur() == neutre){
 //choisir couleur
   string couleur;
   std::cout << "votre carte est neutre, veuillez choissir une couleur (rouge, jaune, bleu, vert, violet )\n";

@@ -48,6 +48,8 @@ class Joueur{
   
       void init_main (Deck *deck);
 
+      
+
       protected:
 
         int id_tortue;
@@ -55,6 +57,7 @@ class Joueur{
         Couleur_joueur tuile;
         vector<Cartes *> main_joueur;
         Couleur_joueur choix_couleur;
+        
 
       friend ostream& operator<<(ostream& os,Joueur* const& v);
 
