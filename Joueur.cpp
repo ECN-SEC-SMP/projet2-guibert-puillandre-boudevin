@@ -43,11 +43,8 @@ Joueur::Joueur(string name, Deck *deck)//constructeur
       case 4:
         this->tuile = Joueur::Couleur_joueur{violet} ;
       break;
-      
     }
   
-  
-
   current_id_to_give++;
   this->nom = name;
   // clear la main 
@@ -78,14 +75,15 @@ void Joueur::ajouter_carte (Deck *deck){
   this->main_joueur.push_back(c);
 
 }
-void Joueur::supprimer_carte (int num_carte)const{
-    
-  this->main.erase(this->main.begin() + num_carte-1);
+void Joueur::supprimer_carte (int num_carte, Deck *deck){
+
+  deck->ajouter_cartes_defausse(this->main_joueur[num_carte]);
+  this->main_joueur.erase(this->main_joueur.begin() + num_carte-1);
 
 }
-void init_main (Deck *deck) const{
+void Joueur::init_main (Deck *deck) {
 
-  for (int i=0; i<this->main.size(); i++){
-  this->ajouter_carte (deck);
+  for (int i=0; i<this->main_joueur.size(); i++){
+  this->ajouter_carte(deck);
   }
 }

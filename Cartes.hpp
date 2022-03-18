@@ -31,6 +31,6 @@ class Cartes {
 
 };
 
-ostream& operator<<(ostream& s,Cartes const& v);
+ostream& operator<<(ostream& s,Cartes const& p);
 
 #endif 
