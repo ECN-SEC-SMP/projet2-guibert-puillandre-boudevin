@@ -6,42 +6,41 @@ using namespace std;
 
 #include "Deck.hpp"
 #include "Cartes.hpp"
-#include "CartePP.hpp"
 
 Deck::Deck(){
     this->pioche.clear();
     this->defausse.clear();
     //Ajout cartes ++
     this->pioche.push_back(new Cartes(Cartes::rouge,2));
-    this->pioche.push_back(new Cartes(Cartes::jaune));
-    this->pioche.push_back(new CartePP(Cartes::vert));
-    this->pioche.push_back(new CartePP(Cartes::violet));
-    this->pioche.push_back(new CartePP(Cartes::bleu));
+    this->pioche.push_back(new Cartes(Cartes::jaune,2));
+    this->pioche.push_back(new Cartes(Cartes::vert,2));
+    this->pioche.push_back(new Cartes(Cartes::violet,2));
+    this->pioche.push_back(new Cartes(Cartes::bleu,2));
     //Ajout des cartes +
     for(int i = 0; i < 5; i++){
-        this->pioche.push_back(new CartePP(Cartes::rouge));
-        this->pioche.push_back(new CartePP(Cartes::jaune));
-        this->pioche.push_back(new CartePP(Cartes::vert));
-        this->pioche.push_back(new CartePP(Cartes::violet));
-        this->pioche.push_back(new CartePP(Cartes::bleu));  
-        this->pioche.push_back(new CartePP(Cartes::neutre));
+        this->pioche.push_back(new Cartes(Cartes::rouge,1));
+        this->pioche.push_back(new Cartes(Cartes::jaune,1));
+        this->pioche.push_back(new Cartes(Cartes::vert,1));
+        this->pioche.push_back(new Cartes(Cartes::violet,1));
+        this->pioche.push_back(new Cartes(Cartes::bleu,1));  
+        this->pioche.push_back(new Cartes(Cartes::neutre,1));
     }
     //Ajout des cartes -
     for(int i = 0; i < 2; i++){
-        this->pioche.push_back(new CartePP(Cartes::rouge));
-        this->pioche.push_back(new CartePP(Cartes::jaune));
-        this->pioche.push_back(new CartePP(Cartes::vert));
-        this->pioche.push_back(new CartePP(Cartes::violet));
-        this->pioche.push_back(new CartePP(Cartes::bleu));  
-        this->pioche.push_back(new CartePP(Cartes::neutre));
+        this->pioche.push_back(new Cartes(Cartes::rouge,-1));
+        this->pioche.push_back(new Cartes(Cartes::jaune,-1));
+        this->pioche.push_back(new Cartes(Cartes::vert,-1));
+        this->pioche.push_back(new Cartes(Cartes::violet,-1));
+        this->pioche.push_back(new Cartes(Cartes::bleu,-1));  
+        this->pioche.push_back(new Cartes(Cartes::neutre,-1));
     }
     //Ajout des cartes neutre => =>
     for(int i = 0; i < 2; i++){
-        this->pioche.push_back(new CartePP(Cartes::neutre));
+        this->pioche.push_back(new Cartes(Cartes::neutre,-2));
     }
     //Ajout des cartes neutre =>
     for(int i = 0; i < 3; i++){
-        this->pioche.push_back(new CartePP(Cartes::neutre));
+        this->pioche.push_back(new Cartes(Cartes::neutre,-1));
     }
 }
 
