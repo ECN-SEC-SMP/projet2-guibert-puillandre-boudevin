@@ -53,10 +53,16 @@ public:
 
     vector<Joueur*> get_liste_joueurs();
 
-    friend ostream& operator<<(ostream& s,Plateau const& v);
+    friend ostream& operator<<(ostream& os,Plateau const& v);
 
 };
 
-ostream& operator<<(ostream& s,Plateau const& v);
+ostream& operator<<(ostream& os,Plateau const& plateau){
+    for(Case *c : plateau.get_plateau_de_jeu()){
+        os << c << endl;
+        os << "----------------------" << endl;
+    };
+    return os;
+}
 
 #endif

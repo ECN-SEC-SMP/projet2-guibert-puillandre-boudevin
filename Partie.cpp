@@ -77,6 +77,10 @@ Joueur* Partie::get_joueur_actuel() const //renvoie le joueur actuel
   return this->joueur_actuel;
 }
 
+Plateau* Partie::get_plateau() const{
+  return this->Plat;
+}
+
 bool Partie::finDePartie() const{
   for(Joueur* j : this->Plat->get_liste_joueurs()){
     if(this->Plat->get_index_case_joueur(j) == 10){
