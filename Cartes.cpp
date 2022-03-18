@@ -20,3 +20,9 @@ Cartes::Couleur_carte Cartes::get_couleur() const {
   return this->couleur_carte;
 }
 
+void Cartes::conv_couleur_j_cartes(){
+  switch(couleur_carte){
+    
+  }
+  
+}

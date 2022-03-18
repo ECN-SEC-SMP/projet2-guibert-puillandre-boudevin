@@ -6,8 +6,9 @@ using namespace std;
 #include "Joueur.hpp"
 #include "Deck.hpp"
 #include <time.h>       /* time */
+#include <vector>
 
-Joueur::Joueur(string name, Deck &deck)//constructeur
+Joueur::Joueur(string name, Deck *deck)//constructeur
 {
   this->id_tortue = current_id_to_give;
   // donner couleur
@@ -16,7 +17,7 @@ Joueur::Joueur(string name, Deck &deck)//constructeur
   
   // 0: rouge 1 :jaune 2: bleu 3:vert 4:violet
   // couleur pas prise
-  while(couleur[coul]!=0){
+  while(couleur[coul]!=1){
     coul ++;
     coul = coul % 4;
   }
@@ -50,7 +51,7 @@ Joueur::Joueur(string name, Deck &deck)//constructeur
   current_id_to_give++;
   this->nom = name;
   // clear la main 
-  this->main.clear();
+  this->main_joueur.clear();
   // init main
   this->init_main(deck);
 }
@@ -69,22 +70,22 @@ Joueur::Couleur_joueur Joueur::get_tuile() const//renvoi la tuile du joueur
 }
 //retourne le contenu de la main
 vector<Cartes *> Joueur::get_main() const {
-  return this->main;
+  return this->main_joueur;
 }
 
-void Joueur::ajouter_carte (Deck *deck)const{
-
-  this->main.push_back(deck->tirer_carte_pioche);
+void Joueur::ajouter_carte (Deck *deck){
+  Cartes* c = deck->tirer_carte_pioche();
+  this->main_joueur.push_back(c);
 
 }
 void Joueur::supprimer_carte (int num_carte)const{
-
+    
   this->main.erase(this->main.begin() + num_carte-1);
 
 }
 void init_main (Deck *deck) const{
 
-  for (i=0; i<this->main.size(); i++){
+  for (int i=0; i<this->main.size(); i++){
   this->ajouter_carte (deck);
   }
 }

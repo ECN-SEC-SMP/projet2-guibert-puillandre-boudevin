@@ -11,9 +11,6 @@ using namespace std;
 static int current_id_to_give = 0;
 static int couleur [4];
 
-for (i = 0; i<=4; i++){couleur [i] = 0};
-
-
 
 class Joueur{
 
@@ -38,7 +35,7 @@ class Joueur{
 
         void afficher_main() const;
 
-        void ajouter_carte (Deck *deck) const;
+        void ajouter_carte (Deck *deck) ;
 
         void supprimer_carte (int num_carte)const;
 
@@ -51,7 +48,7 @@ class Joueur{
         int id_tortue;
         string nom;
         Couleur_joueur tuile;
-        vector<Cartes *> main;
+        vector<Cartes *> main_joueur;
 
        std::ostream & do_print(std::ostream & c) {
             // création du vecteur
@@ -65,7 +62,6 @@ class Joueur{
               vs += "\ncarte n°" + to_string(i) +" :\n";
               vs += this->main[i].afficher();
             }
-          }
             c <<  vs;
             return c;
         }; 
