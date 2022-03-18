@@ -12,7 +12,9 @@ using namespace std;
 Manuel::Manuel(string name, Deck* deck):Joueur(name, deck) //constructeur
 {
 }
-Cartes* Manuel::choisir_carte(){
+
+
+Cartes* Manuel::choisir_carte(Deck* deck){
 // on regarde les cartes
 std::cout << this; 
 
@@ -23,13 +25,28 @@ std::cout << "veuillez choisir une carte\n";
 std::cout << "rentrez votre n° de carte :\n";
 cin >> carte_choisie ;
 
-/*
-  
-if neutre 
-  choisir couleur
+  // valentin except n° pas correct, numéro hors 1 à 5
 
-*/
-return this->main_joueur[carte_choisie];
 
+if (this->main_joueur[carte_choisie].get_couleur()){
+//choisir couleur
+  string couleur;
+  std::cout << "votre carte est neutre, veuillez choissir une couleur (rouge, jaune, bleu, vert, violet )\n";
+cin >> couleur ;
+this->set_choix(couleur);
+}
   
+
+// valentin except couleur pas correct, couleur hors string rouge, jaune, bleu, vert, violet
+  // copie
+  Cartes* c = this->main_joueur[carte_choisie];
+
+  //supprimer
+  this->supprimer_carte (this->main_joueur[carte_choisie],deck);
+
+  //pioche
+  this->ajouter_carte(deck);
+  
+// return carte
+return c;
 }

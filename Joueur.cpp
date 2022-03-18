@@ -87,3 +87,26 @@ void Joueur::init_main (Deck *deck) {
   this->ajouter_carte(deck);
   }
 }
+
+Joueur::Couleur_joueur Joueur::get_choix ()const {
+  return this->choix_couleur;
+}
+
+void Joueur::set_choix (string couleur ){
+      
+     if (couleur == "rouge"){
+      this->choix_couleur = Joueur::Couleur_joueur{rouge} ; 
+     }
+     else if (couleur == "jaune"){
+      this->choix_couleur = Joueur::Couleur_joueur{jaune} ; 
+     }
+     else if (couleur == "bleu"){
+      this->choix_couleur = Joueur::Couleur_joueur{bleu} ; 
+     }
+     else if (couleur == "vert"){
+      this->choix_couleur = Joueur::Couleur_joueur{vert} ; 
+     }
+     else if (couleur == "violet"){
+      this->choix_couleur = Joueur::Couleur_joueur{violet} ; 
+     }
+}

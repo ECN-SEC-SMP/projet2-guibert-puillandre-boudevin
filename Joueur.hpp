@@ -40,21 +40,21 @@ class Joueur{
 
       void supprimer_carte (int num_carte, Deck *deck);
 
-      virtual Cartes* choisir_carte() = 0;
+      virtual Cartes* choisir_carte(Deck* deck) = 0;
 
       Couleur_joueur get_choix() const;
   
-      void set_choix ( string couleur );
+      void set_choix (string couleur);
   
       void init_main (Deck *deck);
 
       protected:
 
-      int id_tortue;
-      string nom;
-      Couleur_joueur tuile;
-      vector<Cartes *> main_joueur;
-      Couleur_joueur choix_carte;
+        int id_tortue;
+        string nom;
+        Couleur_joueur tuile;
+        vector<Cartes *> main_joueur;
+        Couleur_joueur choix_couleur;
 
       friend ostream& operator<<(ostream& os,Joueur* const& v);
 
