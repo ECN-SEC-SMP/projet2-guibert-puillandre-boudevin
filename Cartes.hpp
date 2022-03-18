@@ -14,16 +14,11 @@ class Cartes {
 
     public:
 
-      enum Couleur_carte { rouge, jaune, bleu, vert, violet, neutre };
+      enum Couleur_carte { rouge, 'ujaune, bleu, vert, violet, neutre };
 
       Cartes(Couleur_carte couleur_j, int nb_cases);
 
-      struct Resultat_effet {
-        Couleur_carte couleur_j;
-        int nb_cases;
-      };
-
-      virtual Resultat_effet effet() = 0;
+      virtual void effet() = 0;
 
       void set_couleur(string couleur);
       string get_couleur() const;
