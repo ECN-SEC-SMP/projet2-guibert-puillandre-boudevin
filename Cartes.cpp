@@ -52,5 +52,5 @@ std::ostream& operator<<(std::ostream& s, Cartes const &p)
    s<< "Carte :\n"
    "Couleur carte : " << p.get_couleur() << " \n" <<
    "numéro case: " << p.get_nb_cases() << " \n" << std::endl;
-  return o;
+  return s;
 }
