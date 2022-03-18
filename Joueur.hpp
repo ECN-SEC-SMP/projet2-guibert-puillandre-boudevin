@@ -20,7 +20,7 @@ class Joueur{
         enum Couleur_joueur{ rouge, jaune, bleu, vert, violet };
 
         //constructeur
-        Joueur(string name, Deck &deck);
+        Joueur(string name, Deck* deck);
 
         //!@brief Récupère le nom du joueur
         //!@return Retourne le nom du joueur
@@ -49,12 +49,11 @@ class Joueur{
 
         int id_tortue;
         string nom;
-        Couleur_joueur tuile = 0;
+        Couleur_joueur tuile;
         vector<Cartes *> main;
-};
 
-       // affiche du joueur et de sa main
-       std::ostream & do_print(std::ostream & c) const {
+               // affiche du joueur et de sa main
+       std::ostream & do_print(std::ostream & c) {
             // création du vecteur
             string vs;
             
@@ -62,7 +61,7 @@ class Joueur{
             vs += "Le joueur :"+ this->get_nom();
             vs += " qui a la tortue de couleur :" + this->get_tuile();
             vs += "\n et la main suivante :";
-            for (i=0; i<this->main.size(); i++){
+            for (int i=0; i<this->main.size(); i++){
               vs += "\ncarte n°" + to_string(i) +" :\n";
               vs += this->main[i].afficher();
             }
@@ -70,6 +69,9 @@ class Joueur{
             c <<  vs;
             return c;
         }; 
+
+
+};
 
 
 
