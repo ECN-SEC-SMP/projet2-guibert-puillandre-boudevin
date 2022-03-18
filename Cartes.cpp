@@ -6,17 +6,17 @@
 using namespace std;
 
 // constructeur de Cartes
-Cartes::Cartes(Couleur_carte couleur_j, int nb_cases){
-  this->couleur_j = couleur_j;
+Cartes::Cartes(Couleur_carte couleur_carte, int nb_cases){
+  this->couleur_carte = couleur_carte;
   this->nb_cases = nb_cases;
 };
 
 
-void Cartes::set_couleur(string couleur){
-  this->couleur_j = couleur;
+void Cartes::set_couleur(Couleur_carte couleur){
+  this->couleur_carte = couleur;
 }
 
-
-void deplacer_joueurs_couleur(Joueur::Couleur_joueur couleur,int nb_cases);
-
+Cartes::Couleur_carte Cartes::get_couleur() const {
+  return this->couleur_carte;
+}
 

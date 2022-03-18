@@ -11,7 +11,7 @@ using namespace std;
 static int current_id_to_give = 0;
 static int couleur [4];
 // clean tab
-for (i = 0; i<=4; i++){couleur [i] = 0;
+for (i = 0; i<=4; i++){couleur [i] = 0};
 
 
 class Joueur{
@@ -37,13 +37,13 @@ class Joueur{
 
         void afficher_main() const;
 
-        void ajouter_carte (Deck* deck);
+        void ajouter_carte (Deck *deck) const;
 
         void supprimer_carte (int num_carte)const;
 
         virtual Cartes* choisir_carte() = 0;
 
-        void init_main (Deck &deck) const;
+        void init_main (Deck *&deck) const;
 
         protected:
 
@@ -54,7 +54,7 @@ class Joueur{
 };
 
        // affiche du joueur et de sa main
-       std::ostream & do_print(std::ostream & c) const {
+       std::ostream & do_print(std::ostream & c) {
             // création du vecteur
             string vs;
             

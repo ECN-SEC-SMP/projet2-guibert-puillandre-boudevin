@@ -3,7 +3,7 @@
 
 #include "Joueur.hpp"
 
-class Ia : public Joueur { 
+class Manuel : public Joueur { 
 
   public :
 
