@@ -43,13 +43,17 @@ class Joueur{
 
         void init_main (Deck *deck);
 
+        Couleur_joueur get_choix() const;
+
+        void set_choix ( string couleur );
+
         protected:
 
         int id_tortue;
         string nom;
         Couleur_joueur tuile;
         vector<Cartes *> main_joueur;
-        Couleur_joueur choix_carte;
+        Couleur_joueur choix_couleur;
 
 
 ostream& operator<<(ostream& os,Joueur const& j);
