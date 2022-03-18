@@ -35,23 +35,28 @@ class Joueur{
 
         void afficher_main() const;
 
-        void ajouter_carte (Deck *deck) const;
+        void ajouter_carte (Deck *deck) ;
 
-        void supprimer_carte (int num_carte)const;
+        void supprimer_carte (int num_carte);
 
         virtual Cartes* choisir_carte() = 0;
 
-        void init_main (Deck *deck) const;
+        void init_main (Deck *deck);
 
         protected:
 
         int id_tortue;
         string nom;
         Couleur_joueur tuile;
-        vector<Cartes *> main;
+        vector<Cartes *> main_joueur;
 
-       std::ostream & do_print(std::ostream & c) {
-            // création du vecteur
+
+ostream& operator<<(ostream& os,Joueur const& j);
+};
+
+
+ostream& operator<<(ostream& os,Joueur const& j){
+    // création du vecteur
             string vs;
             
             // on ajoute le nom
@@ -62,12 +67,8 @@ class Joueur{
               vs += "\ncarte n°" + to_string(i) +" :\n";
               vs += this->main[i].afficher();
             }
-            c <<  vs;
-            return c;
-        }; 
-
-};
-
-
+    os <<  vs;
+    return os;
+}
 
 #endif /* Joueur_h */

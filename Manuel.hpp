@@ -11,6 +11,7 @@ class Manuel : public Joueur {
     //! @return void
 
     virtual void choisir_carte() override ; //Chance hérite de sa propre classe action
+    Manuel(string name, Deck *deck);
 
 };
 

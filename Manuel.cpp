@@ -1,17 +1,26 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
+#include <string>
+
+
 
 #include "Deck.hpp"
 #include "Joueur.hpp"
 #include "Manuel.hpp"
 
-Manuel::Manuel(string name, Deck &deck):Joueur(name, deck) //constructeur
+Manuel::Manuel(string name, Deck* deck):Joueur(name, deck) //constructeur
 {
-  this->status="Manuel";
 }
 void Manuel::choisir_carte(){
+// on regarde les cartes
+std::cout << this; 
 
-std::cout << Manuel
+//choisir une carte
+std::cout << "veuillez choisir une carte\n";
+std::cout << "rentrez votre n° de carte :\n";
+  
+
+
   
 }

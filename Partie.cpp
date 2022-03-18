@@ -72,8 +72,7 @@ void Partie::joueur_suivant(){
     this->joueur_actuel = *l_front;
 }
 
-Joueur* Partie::get_joueur_actuel() const //renvoie le joueur actuel
-{
+Joueur* Partie::get_joueur_actuel() const{
   return this->joueur_actuel;
 }
 

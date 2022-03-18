@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <list>
+#include "Joueur.hpp"
 
 
 using namespace std;
@@ -23,17 +24,17 @@ class Cartes {
       void set_couleur(Couleur_carte couleur);
       Couleur_carte get_couleur() const;
 
-    friend ostream& operator<<(ostream& s,Cartes const& v);
+      friend ostream& operator<<(ostream& s,Cartes const& v);
 
 
     protected:
 
         Couleur_carte couleur_carte;
-        int nb_cases
+        int nb_cases;
 
     private:
 
-      void conv_couleur_j_cartes();
+        Joueur::Couleur_joueur conv_couleur_j_cartes();
 
 };
 

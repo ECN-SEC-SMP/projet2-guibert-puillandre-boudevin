@@ -43,7 +43,6 @@ Joueur::Joueur(string name, Deck *deck)//constructeur
       case 4:
         this->tuile = Joueur::Couleur_joueur{violet} ;
       break;
-      
     }
   
   
@@ -51,7 +50,7 @@ Joueur::Joueur(string name, Deck *deck)//constructeur
   current_id_to_give++;
   this->nom = name;
   // clear la main 
-  this->main.clear();
+  this->main_joueur.clear();
   // init main
   this->init_main(deck);
 }
@@ -70,22 +69,22 @@ Joueur::Couleur_joueur Joueur::get_tuile() const//renvoi la tuile du joueur
 }
 //retourne le contenu de la main
 vector<Cartes *> Joueur::get_main() const {
-  return this->main;
+  return this->main_joueur;
 }
 
-void Joueur::ajouter_carte (Deck *deck)const{
-  
-  this->main.push_back(deck->tirer_carte_pioche());
+void Joueur::ajouter_carte (Deck *deck){
+  Cartes* c = deck->tirer_carte_pioche();
+  this->main_joueur.push_back(c);
 
 }
-void Joueur::supprimer_carte (int num_carte)const{
+void Joueur::supprimer_carte (int num_carte){
     
-  this->main.erase(this->main.begin() + num_carte-1);
+  this->main_joueur.erase(this->main_joueur.begin() + num_carte-1);
 
 }
-void Joueur::init_main (Deck *deck) const{
+void Joueur::init_main (Deck *deck) {
 
-  for (int i=0; i<this->main.size(); i++){
+  for (int i=0; i<this->main_joueur.size(); i++){
   this->ajouter_carte (deck);
   }
 }
