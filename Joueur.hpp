@@ -49,6 +49,7 @@ class Joueur{
         string nom;
         Couleur_joueur tuile;
         vector<Cartes *> main_joueur;
+        Couleur_joueur choix_carte;
 
 
 ostream& operator<<(ostream& os,Joueur const& j);

@@ -23,12 +23,12 @@ std::cout << "veuillez choisir une carte\n";
 std::cout << "rentrez votre n° de carte :\n";
 cin >> carte_choisie ;
 
-
+/*
   
 if neutre 
   choisir couleur
 
-
+*/
 return this->main_joueur[carte_choisie];
 
   

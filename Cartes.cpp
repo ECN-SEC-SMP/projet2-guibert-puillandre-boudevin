@@ -40,6 +40,7 @@ Joueur::Couleur_joueur Cartes::conv_couleur_j_cartes(){
       return Joueur::chosir_couleur();
     break;
   }
+  
 }
 
 int Cartes::get_nb_cases() const{
@@ -47,10 +48,10 @@ int Cartes::get_nb_cases() const{
   
 }
 
-std::ostream& operator<<(std::ostream& s, Cartes const &p)
-{
-   s<< "Carte :\n"
-   "Couleur carte : " << p.get_couleur() << " \n" <<
-   "numéro case: " << p.get_nb_cases() << " \n" << std::endl;
-  return s;
-}
+// std::ostream& operator<<(std::ostream& s, Cartes const &p)
+// {
+//    s<< "Carte :\n"
+//    "Couleur carte : " << p.get_couleur() << " \n" <<
+//    "numéro case: " << p.get_nb_cases() << " \n" << std::endl;
+//   return s;
+// }
