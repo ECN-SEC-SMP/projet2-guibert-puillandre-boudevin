@@ -45,8 +45,6 @@ Joueur::Joueur(string name, Deck *deck)//constructeur
       break;
     }
   
-  
-
   current_id_to_give++;
   this->nom = name;
   // clear la main 
