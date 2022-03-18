@@ -12,7 +12,7 @@ class Manuel : public Joueur {
     //! @return void
 
     virtual Cartes* choisir_carte(Deck* deck) override ; 
-    Manuel(string name, Deck *deck);
+    Manuel(string name);
 
 };
 

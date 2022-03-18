@@ -9,7 +9,7 @@ using namespace std;
 #include <time.h>       /* time */
 #include <vector>
 
-Joueur::Joueur(string name, Deck *deck)//constructeur
+Joueur::Joueur(string name)//constructeur
 {
   this->id_tortue = current_id_to_give;
   // donner couleur
@@ -51,7 +51,6 @@ Joueur::Joueur(string name, Deck *deck)//constructeur
   // clear la main 
   this->main_joueur.clear();
   // init main
-  this->init_main(deck);
 }
 
 string Joueur::get_nom() const{

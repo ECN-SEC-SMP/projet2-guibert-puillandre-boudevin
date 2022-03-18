@@ -99,6 +99,7 @@ void Plateau::ajouter_joueur(Joueur* j){
     if(this->liste_de_joueurs.size() > 5){
       throw string("Nombre de joueurs trop élevé");
     }
+    j->init_main(this->deck_de_la_partie);
   this->liste_de_joueurs.push_back(j);
   }
   catch(const std::exception& e)

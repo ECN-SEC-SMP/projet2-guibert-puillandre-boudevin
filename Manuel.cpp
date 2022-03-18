@@ -9,7 +9,7 @@ using namespace std;
 #include "Joueur.hpp"
 #include "Manuel.hpp"
 
-Manuel::Manuel(string name, Deck* deck):Joueur(name, deck) //constructeur
+Manuel::Manuel(string name):Joueur(name) //constructeur
 {
 }
 
