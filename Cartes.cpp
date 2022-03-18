@@ -11,7 +11,6 @@ Cartes::Cartes(Couleur_carte couleur_carte, int nb_cases){
   this->nb_cases = nb_cases;
 };
 
-
 void Cartes::set_couleur(Couleur_carte couleur){
   this->couleur_carte = couleur;
 }
@@ -41,4 +40,17 @@ Joueur::Couleur_joueur Cartes::conv_couleur_j_cartes(){
       return Joueur::chosir_couleur();
     break;
   }
+}
+
+int Cartes::get_nb_cases() const{
+  return this->nb_cases;
+  
+}
+
+std::ostream& operator<<(std::ostream& s, Cartes const &p)
+{
+   s<< "Carte :\n"
+   "Couleur carte : " << p.get_couleur() << " \n" <<
+   "numéro case: " << p.get_nb_cases() << " \n" << std::endl;
+  return o;
 }

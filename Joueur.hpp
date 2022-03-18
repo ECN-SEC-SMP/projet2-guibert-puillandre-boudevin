@@ -37,7 +37,7 @@ class Joueur{
 
         void ajouter_carte (Deck *deck) ;
 
-        void supprimer_carte (int num_carte);
+        void supprimer_carte (int num_carte, Deck *deck);
 
         virtual Cartes* choisir_carte() = 0;
 

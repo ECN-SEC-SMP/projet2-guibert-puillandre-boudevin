@@ -12,8 +12,8 @@ Deck::Deck(){
     this->pioche.clear();
     this->defausse.clear();
     //Ajout cartes ++
-    this->pioche.push_back(new CartePP(Cartes::rouge));
-    this->pioche.push_back(new CartePP(Cartes::jaune));
+    this->pioche.push_back(new Cartes(Cartes::rouge,2));
+    this->pioche.push_back(new Cartes(Cartes::jaune));
     this->pioche.push_back(new CartePP(Cartes::vert));
     this->pioche.push_back(new CartePP(Cartes::violet));
     this->pioche.push_back(new CartePP(Cartes::bleu));

@@ -2,15 +2,16 @@
 #define Manuel_hpp 
 
 #include "Joueur.hpp"
+#include "Cartes.hpp"
 
 class Manuel : public Joueur { 
 
   public :
 
-    //! @brief la méthode choisir une carte permet ici de choisir une carte parmis les 5 d la mains du joueur et d'effectuer son effet
+    //! @brief la méthode choisir une carte permet ici de choisir une carte parmis les 5 de la mains du joueur et d'effectuer son effet
     //! @return void
 
-    virtual void choisir_carte() override ; //Chance hérite de sa propre classe action
+    virtual Cartes* choisir_carte() override ; 
     Manuel(string name, Deck *deck);
 
 };

@@ -77,14 +77,15 @@ void Joueur::ajouter_carte (Deck *deck){
   this->main_joueur.push_back(c);
 
 }
-void Joueur::supprimer_carte (int num_carte){
-    
+void Joueur::supprimer_carte (int num_carte, Deck *deck){
+
+  deck->ajouter_cartes_defausse(this->main_joueur[num_carte]);
   this->main_joueur.erase(this->main_joueur.begin() + num_carte-1);
 
 }
 void Joueur::init_main (Deck *deck) {
 
   for (int i=0; i<this->main_joueur.size(); i++){
-  this->ajouter_carte (deck);
+  this->ajouter_carte(deck);
   }
 }
