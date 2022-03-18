@@ -6,8 +6,9 @@ using namespace std;
 #include "Joueur.hpp"
 #include "Deck.hpp"
 #include <time.h>       /* time */
+#include <vector>
 
-Joueur::Joueur(string name, Deck &deck)//constructeur
+Joueur::Joueur(string name, Deck *deck)//constructeur
 {
   this->id_tortue = current_id_to_give;
   // donner couleur
@@ -16,7 +17,7 @@ Joueur::Joueur(string name, Deck &deck)//constructeur
   
   // 0: rouge 1 :jaune 2: bleu 3:vert 4:violet
   // couleur pas prise
-  while(couleur[coul]!=0){
+  while(couleur[coul]!=1){
     coul ++;
     coul = coul % 4;
   }
@@ -73,12 +74,12 @@ vector<Cartes *> Joueur::get_main() const {
 }
 
 void Joueur::ajouter_carte (Deck *deck)const{
-
-  this->main.push_back(deck->tirer_carte_pioche);
+  
+  this->main.push_back(deck->tirer_carte_pioche());
 
 }
 void Joueur::supprimer_carte (int num_carte)const{
-
+    
   this->main.erase(this->main.begin() + num_carte-1);
 
 }

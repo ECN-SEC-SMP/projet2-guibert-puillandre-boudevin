@@ -33,7 +33,7 @@ class Cartes {
 
     private:
 
-      conv_couleur_j_cartes()
+      void conv_couleur_j_cartes();
 
 };
 

@@ -11,9 +11,6 @@ using namespace std;
 static int current_id_to_give = 0;
 static int couleur [4];
 
-for (i = 0; i<=4; i++){couleur [i] = 0};
-
-
 
 class Joueur{
 
@@ -65,7 +62,6 @@ class Joueur{
               vs += "\ncarte n°" + to_string(i) +" :\n";
               vs += this->main[i].afficher();
             }
-          }
             c <<  vs;
             return c;
         }; 
