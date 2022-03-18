@@ -41,7 +41,7 @@ class Joueur{
 
         virtual Cartes* choisir_carte() = 0;
 
-        void init_main (Deck *&deck) const;
+        void init_main (Deck *deck) const;
 
         protected:
 

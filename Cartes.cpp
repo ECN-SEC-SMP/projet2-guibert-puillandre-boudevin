@@ -22,7 +22,26 @@ Cartes::Couleur_carte Cartes::get_couleur() const {
 
 void Cartes::conv_couleur_j_cartes(){
   switch(couleur_carte){
+    case rouge:
     
+    break;
+    case jaune:
+    
+    break;
+    case vert:
+    
+    break;
+    case violet:
+
+    break;
+    case bleu:
+
+    break;
+    case neutre:
+
+    break;
+    
+  
   }
   
 }

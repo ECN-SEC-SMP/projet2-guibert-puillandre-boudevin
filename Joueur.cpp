@@ -83,9 +83,9 @@ void Joueur::supprimer_carte (int num_carte)const{
   this->main.erase(this->main.begin() + num_carte-1);
 
 }
-void init_main (Deck *deck) const{
+void Joueur::init_main (Deck *deck) const{
 
-  for (i=0; i<this->main.size(); i++){
+  for (int i=0; i<this->main.size(); i++){
   this->ajouter_carte (deck);
   }
 }
