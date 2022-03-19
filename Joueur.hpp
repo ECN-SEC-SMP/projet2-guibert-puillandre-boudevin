@@ -19,7 +19,7 @@ class Joueur{
       enum Couleur_joueur{ rouge, jaune, bleu, vert, violet };
 
       //constructeur
-      Joueur(string name, Deck* deck);
+      Joueur(string name);
 
       //!@brief Récupère le nom du joueur
       //!@return Retourne le nom du joueur
@@ -68,10 +68,12 @@ ostream& operator<<(ostream& os,Joueur* const& j){
     os << "Le joueur :" <<  j->get_nom();
     os <<  " qui a la tortue de couleur :" +  j->get_tuile();
     os << "\n et la main suivante :";
-    for (int i=0; i< j->main_joueur.size(); i++){
-      os << "\ncarte n°" + to_string(i) +" :\n";
-      os <<  j->main_joueur[i];
-    }
+    int i = 0;
+    for(Cartes* c : j->main_joueur){
+      os << "Carte n°" + to_string(i) << endl;
+      os <<  c << endl;
+      i++;
+    };
     return os;
 }
 

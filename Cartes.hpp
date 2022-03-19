@@ -1,13 +1,14 @@
-#pragma once
 #ifndef Cartes_hpp
 #define Cartes_hpp
 
 #include <iostream>
-#include <list>
-#include "Joueur.hpp"
-
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <algorithm> 
+#include <vector>       // std::vector
 
 using namespace std;
+
+#include "Joueur.hpp"
 
 class Cartes {
 
@@ -21,16 +22,21 @@ class Cartes {
       Couleur_carte get_couleur() const;
       int get_nb_cases() const;
 
-      friend ostream& operator<<(ostream& s,Cartes const& v);
+      friend ostream& operator<<(ostream& os,Cartes const& carte);
 
     protected:
 
         Couleur_carte couleur_carte;
         int nb_cases;
-        Joueur::Couleur_joueur conv_couleur_j_cartes();
+        //Joueur::Couleur_joueur conv_couleur_j_cartes();
 
 };
 
-ostream& operator<<(ostream& s,Cartes const& p);
+ostream& operator<<(ostream& os,Cartes const& carte){
+  os<< "Cartes : " << std::endl;
+  os<< "Couleur carte : " << carte.get_couleur() << std::endl;
+  os<< "Nombre cases effet : " << carte.get_nb_cases() << std::endl;
+  return os;
+}
 
 #endif 

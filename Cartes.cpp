@@ -19,39 +19,30 @@ Cartes::Couleur_carte Cartes::get_couleur() const {
   return this->couleur_carte;
 }
 
-Joueur::Couleur_joueur Cartes::conv_couleur_j_cartes(){
-  switch(this->couleur_carte){
-    case rouge:
-      return Joueur::rouge;
-    break;
-    case jaune:
-      return Joueur::jaune;
-    break;
-    case vert:
-      return Joueur::vert;
-    break;
-    case violet:
-      return Joueur::violet;
-    break;
-    case bleu:
-      return Joueur::bleu;
-    break;
-    case neutre:
-      return Joueur::chosir_couleur();
-    break;
-  }
+// Joueur::Couleur_joueur Cartes::conv_couleur_j_cartes(){
+//   switch(this->couleur_carte){
+//     case rouge:
+//       return Joueur::rouge;
+//     break;
+//     case jaune:
+//       return Joueur::jaune;
+//     break;
+//     case vert:
+//       return Joueur::vert;
+//     break;
+//     case violet:
+//       return Joueur::violet;
+//     break;
+//     case bleu:
+//       return Joueur::bleu;
+//     break;
+//     case neutre:
+//       return Joueur::chosir_couleur();
+//     break;
+//   }
   
-}
+// }
 
 int Cartes::get_nb_cases() const{
   return this->nb_cases;
-  
 }
-
-// std::ostream& operator<<(std::ostream& s, Cartes const &p)
-// {
-//    s<< "Carte :\n"
-//    "Couleur carte : " << p.get_couleur() << " \n" <<
-//    "numéro case: " << p.get_nb_cases() << " \n" << std::endl;
-//   return s;
-// }

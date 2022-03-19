@@ -1,4 +1,4 @@
-p#include <iostream>
+#include <iostream>
 #include "Partie.hpp"
 #include "Plateau.hpp"
 #include "Manuel.hpp"
