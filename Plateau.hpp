@@ -47,11 +47,13 @@ public:
 
     void ajouter_joueur(Joueur* j);
     
-    Case* get_case_joueurs(Joueur* j);
-    
-    int get_index_case_joueur(Joueur* j);
+    Case* get_case_joueurs(Joueur* j) const;
 
-    vector<Joueur*> get_liste_joueurs();
+    Deck* get_deck() const;
+    
+    int get_index_case_joueur(Joueur* j) const;
+
+    vector<Joueur*> get_liste_joueurs() const;
 
     friend ostream& operator<<(ostream& os,Plateau const& v);
 

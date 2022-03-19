@@ -8,8 +8,6 @@
 
 using namespace std;
 
-#include "Joueur.hpp"
-
 class Cartes {
 
     public:
@@ -28,7 +26,6 @@ class Cartes {
 
         Couleur_carte couleur_carte;
         int nb_cases;
-        //Joueur::Couleur_joueur conv_couleur_j_cartes();
 
 };
 

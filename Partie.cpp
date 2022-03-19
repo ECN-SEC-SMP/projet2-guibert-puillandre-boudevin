@@ -49,9 +49,29 @@ bool Partie::tour_de_jeu() // joue le tour
     //On affiche la main du joueur 
     this->joueur_actuel->afficher_main();
     //Le joueur choisit sa carte
-    Cartes* carte_a_jouer = this->joueur_actuel->choisir_carte();
+    Cartes* carte_a_jouer = this->joueur_actuel->choisir_carte(this->Plat->get_deck());
     //On réalise l'effet de la carte
-    carte_a_jouer->effet(); 
+    switch(carte_a_jouer->get_couleur()){
+      case Cartes::rouge:
+        this->Plat->deplacer_joueurs_couleur(Joueur::rouge,carte_a_jouer->get_nb_cases());
+      break;
+      case Cartes::jaune:
+        this->Plat->deplacer_joueurs_couleur(Joueur::jaune,carte_a_jouer->get_nb_cases());
+      break;
+      case Cartes::vert:
+        this->Plat->deplacer_joueurs_couleur(Joueur::vert,carte_a_jouer->get_nb_cases());
+      break;
+      case Cartes::violet:
+        this->Plat->deplacer_joueurs_couleur(Joueur::violet,carte_a_jouer->get_nb_cases());
+      break;
+      case Cartes::bleu:
+        this->Plat->deplacer_joueurs_couleur(Joueur::bleu,carte_a_jouer->get_nb_cases());
+      break;
+      case Cartes::neutre:
+        Joueur::Couleur_joueur couleur_joueur = joueur_actuel->choisir_couleur();
+        this->Plat->deplacer_joueurs_couleur(couleur_joueur,carte_a_jouer->get_nb_cases());
+      break;
+    }
     cout << "--------------Fin du tour-----------------" << endl;
     //On passe au joueur suivant de la liste
     this->joueur_suivant();

@@ -108,7 +108,7 @@ void Plateau::ajouter_joueur(Joueur* j){
   }
 }
 
-int Plateau::get_index_case_joueur(Joueur* j){
+int Plateau::get_index_case_joueur(Joueur* j) const{
   try
   {
     int numero_case = 0;
@@ -129,7 +129,7 @@ int Plateau::get_index_case_joueur(Joueur* j){
 
 }
 
-Case* Plateau::get_case_joueurs(Joueur* j){
+Case* Plateau::get_case_joueurs(Joueur* j) const{
   try
   {
     for(Case* c : this->plateau_de_jeu){
@@ -146,10 +146,14 @@ Case* Plateau::get_case_joueurs(Joueur* j){
   }
 }
 
-vector<Joueur*> Plateau::get_liste_joueurs(){
+vector<Joueur*> Plateau::get_liste_joueurs() const{
   return this->liste_de_joueurs;
 }
 
 vector<Case *> Plateau::get_plateau_de_jeu() const{
   return this->plateau_de_jeu;
 };
+
+Deck* Plateau::get_deck() const{
+  return this->deck_de_la_partie;
+}

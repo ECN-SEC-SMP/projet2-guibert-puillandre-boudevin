@@ -42,6 +42,8 @@ class Joueur{
 
       virtual Cartes* choisir_carte(Deck* deck) = 0;
 
+      virtual Joueur::Couleur_joueur choisir_couleur() = 0;
+
       Couleur_joueur get_choix() const;
   
       void set_choix (string couleur);

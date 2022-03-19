@@ -3,8 +3,6 @@
 using namespace std;
 #include <string>
 
-
-
 #include "Deck.hpp"
 #include "Joueur.hpp"
 #include "Manuel.hpp"
@@ -13,6 +11,33 @@ Manuel::Manuel(string name):Joueur(name) //constructeur
 {
 }
 
+Joueur::Couleur_joueur choisir_couleur(){
+    cout << "Une carte neutre a été utilisé. Entrer la couleur du joueur cible (rouge,bleu,jaune,vert,violet)" << endl;
+    string couleur;
+    do
+    {
+      cin >> couleur;
+      if (couleur == "rouge"){
+        return Joueur::rouge;
+      }
+      else if (couleur == "jaune"){
+        return Joueur::jaune;
+      }
+      else if (couleur == "bleu"){
+        return Joueur::bleu;
+      }
+      else if (couleur == "vert"){
+        return Joueur::vert;
+      }
+      else if (couleur == "violet"){
+        return Joueur::violet;
+      }
+      else{
+        cout << "Couleur non reconnue, entrez une couleur valdie (rouge,bleu,jaune,vert,violet)" << endl;
+      }
+    } while (couleur != "violet" && couleur != "rouge" && couleur != "jaune" && couleur != "bleu" && couleur != "vert" );
+    
+}
 
 Cartes* Manuel::choisir_carte(Deck* deck){
   // on regarde les cartes
@@ -24,18 +49,6 @@ Cartes* Manuel::choisir_carte(Deck* deck){
   std::cout << "rentrez votre n° de carte :\n";
   cin >> carte_choisie ;
 
-  Cartes::Couleur_carte couleur = this->main_joueur[carte_choisie]->get_couleur();
-  if ( couleur == Cartes::neutre){
-    //choisir couleur
-    string couleur;
-    std::cout << "votre carte est neutre, veuillez choissir une couleur (rouge, jaune, bleu, vert, violet )\n";
-    cin >> couleur ;
-    this->set_choix(couleur);
-  }
-
-  
-  // valentin except couleur pas correct, couleur hors string rouge, jaune, bleu, vert, violet
-
   // copie
   Cartes* c = this->main_joueur[carte_choisie];
 
@@ -45,6 +58,6 @@ Cartes* Manuel::choisir_carte(Deck* deck){
   //pioche
   this->ajouter_carte(deck);
   
-// return carte
-return c;
+  // return carte
+  return c;
 }
