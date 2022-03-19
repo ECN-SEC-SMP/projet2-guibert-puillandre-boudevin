@@ -45,12 +45,8 @@ class Joueur{
       virtual Joueur::Couleur_joueur choisir_couleur() = 0;
 
       Couleur_joueur get_choix() const;
-  
-      void set_choix (string couleur);
-  
-      void init_main (Deck *deck);
 
-      
+      friend ostream& operator<<(ostream& os,Joueur const& v);
 
       protected:
 
@@ -60,23 +56,6 @@ class Joueur{
         vector<Cartes *> main_joueur;
         Couleur_joueur choix_couleur;
         
-
-      friend ostream& operator<<(ostream& os,Joueur* const& v);
-
 };
-
-
-ostream& operator<<(ostream& os,Joueur* const& j){
-    os << "Le joueur :" <<  j->get_nom();
-    os <<  " qui a la tortue de couleur :" +  j->get_tuile();
-    os << "\n et la main suivante :";
-    int i = 0;
-    for(Cartes* c : j->main_joueur){
-      os << "Carte n°" + to_string(i) << endl;
-      os <<  c << endl;
-      i++;
-    };
-    return os;
-}
 
 #endif /* Joueur_h */

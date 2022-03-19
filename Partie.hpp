@@ -32,11 +32,10 @@ class Partie{
         //!@brief Constructeur de la classe Partie
         Partie();
 
-        //!@brief Affichage de l'ensemble des joueurs de la partie, leur fortune ainsi que les cases qu'ils possèdent. Utilisé tous les 10 tours complets
-        void affiche() const;
-
         Plateau* get_plateau() const;
 
+        void ajouter_jouer(Joueur* j);
+        
     private:
 
         //!@brief Fonction permettant de passer au tour de jeu du joueur suivant
@@ -50,17 +49,8 @@ class Partie{
         //!@return retourne vrai s'il ne reste plus qu'un joueur dans la liste, sinon faux
         bool finDePartie() const;
 
-    friend ostream& operator<<(ostream& os,Partie const& v);
+    friend ostream& operator<<(ostream& os,Partie const& partie);
 
 };
-
-ostream& operator<<(ostream& os,Partie const& partie){
-    os << "-----Affichage du plateau----" << endl;
-    os << partie.get_plateau() << endl;
-    os << "------Joueur actuel------" << endl;
-    os << partie.get_joueur_actuel() << endl;
-    return os;
-}
-
 
 #endif /* Partie_h */

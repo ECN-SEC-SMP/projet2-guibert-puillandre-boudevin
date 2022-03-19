@@ -2,18 +2,15 @@
 #include "Partie.hpp"
 #include "Plateau.hpp"
 #include "Manuel.hpp"
-
+#include "Cartes.hpp"
 
 int main() {
 
 
-Manuel* m1 = new Manuel("Pierre"); 
-Manuel* m2 = new Manuel("Jean"); 
-
-  Partie* p1 = new Partie();
-  //p1.ajouter;
-
-
-//std::cout << m1;
-  
+  Manuel* m = new Manuel("test");
+  Manuel* m2 = new Manuel("bernard");
+  Partie* p = new Partie();
+  p->ajouter_jouer(m2);
+  p->ajouter_jouer(m);
+  p->demarrer_partie();
 }

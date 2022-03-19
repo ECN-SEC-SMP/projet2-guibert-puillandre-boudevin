@@ -16,19 +16,12 @@ class Case{
 
     public:
 
+        Case();
         vector<Joueur*> get_joueurs() const;
         void ajouter_joueur(Joueur* j);
         void retirer_joueur(Joueur* j);
-        friend ostream& operator<<(ostream& os,Case const& v);
+        friend ostream& operator<<(ostream& os,Case const& case_jeu);
 
 };
-
-ostream& operator<<(ostream& os,Case const& case_jeu){
-    for(Joueur *j : case_jeu.get_joueurs()){
-        os << j->get_tuile() << endl;
-    };
-    return os;
-}
-
 
 #endif

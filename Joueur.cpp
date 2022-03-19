@@ -15,12 +15,11 @@ Joueur::Joueur(string name)//constructeur
   // donner couleur
   srand (time(NULL));
   int coul = rand() % 4;
-  
   // 0: rouge 1 :jaune 2: bleu 3:vert 4:violet
   // couleur pas prise
-  while(couleur[coul]!=1){
+  while(couleur[coul]!=0){
     coul ++;
-    coul = coul % 4;
+    coul = coul % 5;
   }
   // on prend la couleur
   couleur[coul] = 1;
@@ -45,7 +44,6 @@ Joueur::Joueur(string name)//constructeur
         this->tuile = Joueur::Couleur_joueur{violet} ;
       break;
     }
-  
   current_id_to_give++;
   this->nom = name;
   // clear la main 
@@ -56,6 +54,7 @@ Joueur::Joueur(string name)//constructeur
 string Joueur::get_nom() const{
   return this->nom;
 }
+
 int Joueur::get_id() const//renvoi l'id du joueur / tortue
 {
   return this->id_tortue;
@@ -73,20 +72,54 @@ vector<Cartes *> Joueur::get_main() const {
 void Joueur::ajouter_carte (Deck *deck){
   Cartes* c = deck->tirer_carte_pioche();
   this->main_joueur.push_back(c);
-
 }
+
 void Joueur::supprimer_carte (Cartes* c, Deck *deck){
   deck->ajouter_cartes_defausse(c);
   this->main_joueur.erase(std::remove(this->main_joueur.begin(), this->main_joueur.end(), c), this->main_joueur.end()); 
 
 }
-void Joueur::init_main (Deck *deck) {
-
-  for (int i=0; i<this->main_joueur.size(); i++){
-  this->ajouter_carte(deck);
-  }
-}
 
 Joueur::Couleur_joueur Joueur::get_choix ()const {
   return this->choix_couleur;
+}
+
+ostream& operator<<(ostream& os,Joueur const& j){
+    os << "Nom : " <<  j.get_nom() << endl;
+    switch (j.get_tuile())
+    {
+    case Joueur::rouge:
+      os <<  "Couleur : rouge" << endl;
+      break;
+    case Joueur::jaune:
+      os <<  "Couleur : jaune"  << endl;
+      break; 
+    case Joueur::bleu:
+      os <<  "Couleur : bleu" << endl;
+    break;
+    case Joueur::violet:
+      os <<  "Couleur : violet" << endl;
+    break;
+    case Joueur::vert:
+      os <<  "Couleur : vert" << endl;
+    break;
+    default:
+      os << "Error : Unkown color player" << endl;
+      break;
+    }
+    os << "Main :" << endl;
+    int i = 0;
+    for(Cartes* c : j.main_joueur){
+      os << "Carte n°" + to_string(i) << " " << *c << endl;
+      i++;
+    };
+    return os;
+}
+
+void Joueur::afficher_main() const{
+  int i = 1;
+  for(Cartes* c : this->main_joueur){
+    cout << "Carte n°" + to_string(i) << " " << *c << endl;
+    i++;
+  };
 }

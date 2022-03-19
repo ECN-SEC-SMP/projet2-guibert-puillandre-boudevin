@@ -1,6 +1,8 @@
 #include <string>
 #include <iostream>
 #include <assert.h>
+#include <iterator>
+
 extern "C"{
     #include <unistd.h>
 }
@@ -44,10 +46,8 @@ void Partie::demarrer_partie(){
 bool Partie::tour_de_jeu() // joue le tour
 {
     nb_tours++;
-    //On affiche l'état de la partie 
-    this->affiche();
-    //On affiche la main du joueur 
-    this->joueur_actuel->afficher_main();
+    //On affiche l'état de la partie
+    cout << *this;
     //Le joueur choisit sa carte
     Cartes* carte_a_jouer = this->joueur_actuel->choisir_carte(this->Plat->get_deck());
     //On réalise l'effet de la carte
@@ -80,16 +80,19 @@ bool Partie::tour_de_jeu() // joue le tour
 }
 
 void Partie::joueur_suivant(){
-    //Changer de joueur
-    vector<Joueur *>::iterator l_front = find(this->Plat->get_liste_joueurs().begin(),this->Plat->get_liste_joueurs().end(),this->joueur_actuel);
-    //On vérifie que l'on est pas sur le dernier élément de la liste, si c'est le cas on revient au début 
-    if(distance(l_front,this->Plat->get_liste_joueurs().end()) == 1){
-      l_front = this->Plat->get_liste_joueurs().begin();
+    int index = 1;
+    for(Joueur* j : this->Plat->get_liste_joueurs()){
+        if(j == this->joueur_actuel && index != this->Plat->get_liste_joueurs().size()){
+          this->joueur_actuel = this->Plat->get_liste_joueurs()[index];
+          break;
+        }
+        else if(j == this->joueur_actuel && index == this->Plat->get_liste_joueurs().size()){
+          this->joueur_actuel = this->Plat->get_liste_joueurs().front();
+          break;
+        }
+        index++;
     }
-    else{
-      advance(l_front, 1);
-    }
-    this->joueur_actuel = *l_front;
+    cout << endl;
 }
 
 Joueur* Partie::get_joueur_actuel() const{
@@ -107,4 +110,16 @@ bool Partie::finDePartie() const{
     }
   }
   return false;
+}
+
+void Partie::ajouter_jouer(Joueur* j){
+  this->Plat->ajouter_joueur(j);
+}
+
+ostream& operator<<(ostream& os,Partie const& partie){
+    os << "-----Affichage du plateau----" << endl;
+    os << *partie.get_plateau() << endl;
+    os << "------Joueur actuel------" << endl;
+    os << *partie.get_joueur_actuel() << endl;
+    return os;
 }

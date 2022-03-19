@@ -29,11 +29,5 @@ class Cartes {
 
 };
 
-ostream& operator<<(ostream& os,Cartes const& carte){
-  os<< "Cartes : " << std::endl;
-  os<< "Couleur carte : " << carte.get_couleur() << std::endl;
-  os<< "Nombre cases effet : " << carte.get_nb_cases() << std::endl;
-  return os;
-}
 
 #endif 

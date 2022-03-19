@@ -20,3 +20,32 @@ Cartes::Couleur_carte Cartes::get_couleur() const {
 int Cartes::get_nb_cases() const{
   return this->nb_cases;
 }
+
+ostream& operator<<(ostream& os,Cartes const& carte){
+  switch (carte.get_couleur())
+  {
+  case Cartes::rouge:
+    os<< "Couleur carte : " << "rouge" ;
+    break;
+  case Cartes::jaune:
+    os<< "Couleur carte : " << "jaune" ;
+  break;
+  case Cartes::bleu:
+    os<< "Couleur carte : " << "bleu" ;
+  break;
+  case Cartes::violet:
+    os<< "Couleur carte : " << "violet" ;
+  break;
+  case Cartes::vert:
+    os<< "Couleur carte : " << "vert" ;
+  break;
+  case Cartes::neutre:
+    os<< "Couleur carte : " << "neutre" ;
+  break;
+  default:
+    os << "Error : Unknown color" ;
+    break;
+  }
+  os<< " | Nombre cases effet : " << carte.get_nb_cases();
+  return os;
+}

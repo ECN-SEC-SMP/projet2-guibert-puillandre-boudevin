@@ -52,11 +52,18 @@ Cartes* Deck::tirer_carte_pioche(){
         }
         this->defausse.clear();
     }
-    return this->pioche.front();
+    Cartes* c = this->pioche.front();
+    this->pioche.erase(this->pioche.begin());
+    return c;
 }
 
 void Deck::melanger_cartes_pioche(){
     std::random_shuffle(this->pioche.begin(), this->pioche.end());
+    //     for(Cartes* c : this->pioche){
+    //     cout << *c << endl;
+    // }
+    // int num;
+    // cin >> num;
 }
 
 void Deck::ajouter_cartes_defausse(Cartes* c){

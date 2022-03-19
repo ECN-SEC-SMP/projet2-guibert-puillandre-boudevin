@@ -11,7 +11,7 @@ Manuel::Manuel(string name):Joueur(name) //constructeur
 {
 }
 
-Joueur::Couleur_joueur choisir_couleur(){
+Joueur::Couleur_joueur Manuel::choisir_couleur(){
     cout << "Une carte neutre a été utilisé. Entrer la couleur du joueur cible (rouge,bleu,jaune,vert,violet)" << endl;
     string couleur;
     do
@@ -40,24 +40,37 @@ Joueur::Couleur_joueur choisir_couleur(){
 }
 
 Cartes* Manuel::choisir_carte(Deck* deck){
-  // on regarde les cartes
-  std::cout << this; 
-  int carte_choisie;
+  while (true)
+  {
+    std::cout << "Veuillez choisir une carte" << endl;
+    std::cout << "Rentrez votre n° de carte : ";
+    int carte_choisie;
+    try
+    {
+      cin >> carte_choisie ;
+      if(cin.fail()){
+        throw "Error reading value";
+      }
+      if(carte_choisie < 0 || carte_choisie > 4){
+        throw "Error numero de carte non valide";
+      }
+      // copie
+      Cartes* c = this->main_joueur[carte_choisie];
 
-  //choisir une carte
-  std::cout << "veuillez choisir une carte\n";
-  std::cout << "rentrez votre n° de carte :\n";
-  cin >> carte_choisie ;
+      //supprimer
+      this->supprimer_carte(c,deck);
 
-  // copie
-  Cartes* c = this->main_joueur[carte_choisie];
+      //pioche
+      this->ajouter_carte(deck);
+      
+      // return carte
+      return c;
+    }
+    catch(const std::exception& e)
+    {
 
-  //supprimer
-  this->supprimer_carte(c,deck);
-
-  //pioche
-  this->ajouter_carte(deck);
+    }
+  }
   
-  // return carte
-  return c;
+
 }
