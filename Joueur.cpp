@@ -48,7 +48,6 @@ Joueur::Joueur(string name)//constructeur
   this->nom = name;
   // clear la main 
   this->main_joueur.clear();
-  // init main
 }
 
 string Joueur::get_nom() const{
@@ -77,7 +76,6 @@ void Joueur::ajouter_carte (Deck *deck){
 void Joueur::supprimer_carte (Cartes* c, Deck *deck){
   deck->ajouter_cartes_defausse(c);
   this->main_joueur.erase(std::remove(this->main_joueur.begin(), this->main_joueur.end(), c), this->main_joueur.end()); 
-
 }
 
 Joueur::Couleur_joueur Joueur::get_choix ()const {

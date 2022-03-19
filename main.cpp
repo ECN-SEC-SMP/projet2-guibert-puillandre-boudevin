@@ -6,7 +6,7 @@
 
 int main() {
 
-
+  std::cout << "Veuillez choisir une carte" << endl;
   Manuel* m = new Manuel("test");
   Manuel* m2 = new Manuel("bernard");
   Partie* p = new Partie();

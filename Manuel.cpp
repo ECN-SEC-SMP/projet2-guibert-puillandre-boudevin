@@ -51,11 +51,11 @@ Cartes* Manuel::choisir_carte(Deck* deck){
       if(cin.fail()){
         throw "Error reading value";
       }
-      if(carte_choisie < 0 || carte_choisie > 4){
+      if(carte_choisie < 1 || carte_choisie > 5){
         throw "Error numero de carte non valide";
       }
       // copie
-      Cartes* c = this->main_joueur[carte_choisie];
+      Cartes* c = this->main_joueur[carte_choisie-1];
 
       //supprimer
       this->supprimer_carte(c,deck);
