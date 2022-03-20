@@ -90,7 +90,7 @@ void Plateau::deplacer_joueurs(Joueur* j,int nb_cases){
 void Plateau::deplacer_joueurs_couleur(Joueur::Couleur_joueur couleur,int nb_cases){
   for(Joueur* j : this->liste_de_joueurs){
     if(j->get_tuile() == couleur){
-      this->deplacer_joueurs(j,nb_cases-1);
+      this->deplacer_joueurs(j,nb_cases);
     }
   }
 }

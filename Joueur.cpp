@@ -17,12 +17,12 @@ Joueur::Joueur(string name)//constructeur
   int coul = rand() % 4;
   // 0: rouge 1 :jaune 2: bleu 3:vert 4:violet
   // couleur pas prise
-  while(couleur[coul]!=0){
+  while(couleuru[coul]!=0){
     coul ++;
     coul = coul % 5;
   }
   // on prend la couleur
-  couleur[coul] = 1;
+  couleuru[coul] = 1;
   switch(coul){
       case 0:
         this->tuile = Joueur::Couleur_joueur{rouge} ;

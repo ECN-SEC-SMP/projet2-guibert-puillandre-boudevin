@@ -9,6 +9,7 @@ using namespace std;
 #include "Deck.hpp"
 
 static int current_id_to_give = 0;
+static int couleuru [5];
 
 class Joueur{
 

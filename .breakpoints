@@ -1,3 +1,12 @@
 {
-  "files": {}
+  "files": {
+    "Joueur.o": [
+      {
+        "id": "d55f4d9f-4532-47b8-993e-8f931efeb7d9",
+        "line": 28,
+        "version": 1,
+        "index": 17017
+      }
+    ]
+  }
 }
