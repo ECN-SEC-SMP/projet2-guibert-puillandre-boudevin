@@ -45,7 +45,7 @@ Joueur::Couleur_joueur Ia::choisir_couleur(){
  return c;   
 }
 
-// l'Ia choix des cartes privilégie son avancer de 2 puis de 1, sinon elle fait reculer un adversaire aléatoire de -2 (carte neutre), sinon elle fait reculer un adversaire alétoire de -1 ou aléatoirement soit elle se fait reculer ou elle fait avancer un joueur de -1, en dernier recourt elle fait avancer un joueur de 2.
+// l'Ia pour le choix des cartes privilégie son avancer de 2 puis de 1, sinon elle fait reculer un adversaire aléatoire de -2 (carte neutre), sinon elle fait reculer un adversaire alétoire de -1 ou aléatoirement soit elle se fait reculer ou elle fait avancer un joueur de -1, en dernier recourt elle fait avancer un joueur de 2.
 // le poid correspondent à la force de la carte
 Cartes* Ia::choisir_carte(Deck* deck){
 
