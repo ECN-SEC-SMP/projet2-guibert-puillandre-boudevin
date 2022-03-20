@@ -106,7 +106,7 @@ ostream& operator<<(ostream& os,Joueur const& j){
       break;
     }
     os << "Main :" << endl;
-    int i = 0;
+    int i = 1;
     for(Cartes* c : j.main_joueur){
       os << "Carte n°" + to_string(i) << " " << *c << endl;
       i++;

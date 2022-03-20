@@ -35,8 +35,7 @@ Joueur::Couleur_joueur Manuel::choisir_couleur(){
       else{
         cout << "Couleur non reconnue, entrez une couleur valdie (rouge,bleu,jaune,vert,violet)" << endl;
       }
-    } while (couleur != "violet" && couleur != "rouge" && couleur != "jaune" && couleur != "bleu" && couleur != "vert" );
-    
+    } while (couleur != "violet" && couleur != "rouge" && couleur != "jaune" && couleur != "bleu" && couleur != "vert" );  
 }
 
 Cartes* Manuel::choisir_carte(Deck* deck){

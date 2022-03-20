@@ -13,7 +13,6 @@ Ia::Ia(string name):Joueur(name) //constructeur
 }
 Joueur::Couleur_joueur Ia::choisir_couleur(){
     cout << "Une carte neutre a été utilisé. L'Ia va choisir la couleur la plus appropriée. (rouge,bleu,jaune,vert,violet)" << endl;
-  int couleur;
   Joueur::Couleur_joueur c;
 
   // on prend la couleur du joueur
@@ -39,15 +38,10 @@ Joueur::Couleur_joueur Ia::choisir_couleur(){
       case 4 :
         c = Joueur::violet;
       break;
-      others :
-        cout << "Couleur non reconnue)" << endl;
-        c = this->get_tuile();
-      break;
   }
   string tbcouleur[]={"rouge","jaune","bleu","vert", "violet"};
     cout << "L'Ia a choisit la couleur: " << tbcouleur[couleur] << endl;
  }
-
  return c;   
 }
 
@@ -60,6 +54,26 @@ Cartes* Ia::choisir_carte(Deck* deck){
 srand (time(NULL));
 carte_choisie = rand() %4;
 
+// on transforme la couleur du joueur en couleur de carte
+  Cartes::Couleur_carte cj;
+  
+  switch(this->get_tuile()){
+      case Joueur::rouge:
+        cj=Cartes::rouge; 
+      break;
+      case Joueur::jaune:
+        cj=Cartes::jaune;
+      break;
+      case Joueur::bleu:
+        cj=Cartes::bleu;
+      break;
+      case Joueur::vert:
+        cj=Cartes::vert;
+      break;
+      case Joueur::violet:
+        cj=Cartes::violet;
+      break;
+    }
   
 // copie
 Cartes* c = this->main_joueur[carte_choisie];
@@ -75,8 +89,7 @@ for(Cartes* crt : this->main_joueur){
       cout << " mieux, l'Ia a trouvé une carte entre avancer un adversaire de 1 ou faire reculer sa couleur de -1" << endl;
   }
   //on regarde si carte - pas de notre couleur
-  //problème couleur crt =! couleur joueur pas le même enum
-  else if ((crt->get_nb_cases() == -1) && (crt->get_couleur() != this->get_tuile()) && poid < 2 ){
+  else if ((crt->get_nb_cases() == -1) && (crt->get_couleur() != cj) && poid < 2 ){
       c = crt;
       poid = 2;
     cout << "encore mieux, l'Ia a trouvé une carte -1 pas de sa couleur" << endl;
@@ -88,13 +101,13 @@ for(Cartes* crt : this->main_joueur){
     cout << "toujours mieux, l'Ia a trouvé une carte -2 neutre et donc  pas de sa couleur" << endl;
   }
   //on regarde si carte + et de notre couleur
-  else if ((crt->get_nb_cases() == 1) && (crt->get_couleur() == this->get_tuile()) && poid < 4 ){
+  else if ((crt->get_nb_cases() == 1) && (crt->get_couleur() == cj) && poid < 4 ){
       c = crt;
       poid = 4;
-    out << "beacoup mieux ! l'Ia a trouvé une carte +1 de sa couleur" << endl;
+    cout << "beacoup mieux ! l'Ia a trouvé une carte +1 de sa couleur" << endl;
   }
   //on regarde si une carte de la main est ++ et de notre couleur
-  else if ((crt->get_nb_cases() == 2)  && (crt->get_couleur() == this->get_tuile())&& poid < 5){
+  else if ((crt->get_nb_cases() == 2)  && (crt->get_couleur() == cj)&& poid < 5){
       c = crt;
       cout << "Incroyable !L'Ia a trouvé une carte la fait qui la fait avancer de 2 cases" << endl;
       // on joue directement la carte, il n'y a pas mieux

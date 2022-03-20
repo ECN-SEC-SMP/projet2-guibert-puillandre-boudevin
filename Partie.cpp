@@ -48,7 +48,7 @@ bool Partie::tour_de_jeu() // joue le tour
     nb_tours++;
     //On affiche l'état de la partie
     cout << *this;
-    cout << "Le joueur " << this->joueur_actuel->get_nom() << "choisit une carte :" <<endl;
+    cout << "Le joueur " << this->joueur_actuel->get_nom() << " choisit une carte :" <<endl;
     Cartes* carte_a_jouer = this->joueur_actuel->choisir_carte(this->Plat->get_deck());
     //On réalise l'effet de la carte
     switch(carte_a_jouer->get_couleur()){
@@ -69,7 +69,7 @@ bool Partie::tour_de_jeu() // joue le tour
       break;
       case Cartes::neutre:
         Joueur::Couleur_joueur couleur_joueur = joueur_actuel->choisir_couleur();
-        this->Plat->deplacer_joueurs_couleur(couleur_joueur,carte_a_jouer->get_nb_cases());
+        //this->Plat->deplacer_joueurs_couleur(couleur_joueur,carte_a_jouer->get_nb_cases());
       break;
     }
     cout << "--------------Fin du tour-----------------" << endl;
